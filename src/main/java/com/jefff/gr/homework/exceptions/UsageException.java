@@ -1,7 +1,14 @@
 package com.jefff.gr.homework.exceptions;
 
 public class UsageException extends RuntimeException {
-    public UsageException(String message) {
-        super(message);
+    private UsageError usageError;
+
+    public UsageException(UsageError usageError) {
+        super(usageError.getErrStr());
+        this.usageError = usageError;
+    }
+
+    public UsageError getUsageError() {
+        return usageError;
     }
 }

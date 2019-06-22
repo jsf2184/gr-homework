@@ -6,9 +6,6 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
-import static org.junit.Assert.*;
-
 public class SplitterTest {
 
     private static final List<String> EXPECTED = Arrays.asList("a", "b", "c");

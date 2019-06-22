@@ -1,5 +1,6 @@
 package com.jefff.gr.homework.mapper;
 
+import com.jefff.gr.homework.exceptions.UsageError;
 import com.jefff.gr.homework.exceptions.UsageException;
 import com.jefff.gr.homework.model.Person;
 
@@ -18,10 +19,10 @@ public class PersonMapper {
         List<String> parts = _splitter.split(personStr);
         if (parts.size() != 5)
         {
-            throw new UsageException("A person record requires 5 non-empty fields");
+            throw new UsageException(UsageError.NumFieldsError);
         }
-
-        return  null;
+        Person result = Person.of(parts.get(0), parts.get(1), parts.get(2), parts.get(3), parts.get(4));
+        return result;
     }
 
 }

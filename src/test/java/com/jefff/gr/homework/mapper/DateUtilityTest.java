@@ -1,11 +1,10 @@
 package com.jefff.gr.homework.mapper;
 
+import com.jefff.gr.homework.utility.DateUtility;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 public class DateUtilityTest {
 
