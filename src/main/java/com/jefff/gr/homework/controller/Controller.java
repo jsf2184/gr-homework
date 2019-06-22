@@ -1,5 +1,6 @@
 package com.jefff.gr.homework.controller;
 
+import com.jefff.gr.homework.model.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -29,17 +30,16 @@ public class Controller {
     }
 
     @GetMapping( value = "records")
-    public String getRecords() {
-        Record joe = new Record("Joe");
-        List<Record> records = Arrays.asList(joe, new Record("Mike"));
-        String s = records.toString();
-        return s;
+    public List<Person> getRecords() {
+        Person joe = new Person("Smith", "Zack", "Male", "05/29/1995", "Maize");
+        Person mike = new Person("Smith", "Alex", "Male", "07/10/1993", "Blue");
+        return Arrays.asList(joe, mike);
     }
 
     @PostMapping( value = "records")
-    public String createRecord(@RequestBody final String recordStr)
+    public Person createRecord(@RequestBody final String recordStr)
     {
         LOGGER.info(String.format("createRecord(): recordStr = %s", recordStr));
-        return recordStr;
+        return new Person("Smith", "Joe", "Male", "05/29/1995", "Maize");
     }
 }
