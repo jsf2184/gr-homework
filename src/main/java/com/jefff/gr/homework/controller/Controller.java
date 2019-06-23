@@ -1,6 +1,8 @@
 package com.jefff.gr.homework.controller;
 
 import com.jefff.gr.homework.model.Person;
+import com.jefff.gr.homework.service.PeopleService;
+import com.jefff.gr.homework.service.PersonCompareType;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,30 +12,43 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping( value = "people")
+@RequestMapping( value = "records")
 public class Controller {
 
     private static final Logger log = Logger.getLogger(Controller.class);
 
-    public static class Record implements Serializable {
-        private String name;
+    PeopleService peopleService;
 
-    }
-    public Controller() {
+    public Controller(PeopleService peopleService)
+    {
         log.info("Controller constructor");
+        this.peopleService = peopleService;
     }
 
-    @GetMapping( value = "records")
-    public List<Person> getRecords() {
-        Person joe = Person.of("Smith", "Zack", "Male", "05/29/1995", "Maize");
-        Person mike = Person.of("Smith", "Alex", "Male", "07/10/1993", "Blue");
-        return Arrays.asList(joe, mike);
+    @GetMapping( value = "gender")
+    public List<Person> getRecordsByGenderThenLastAsc() {
+        final List<Person> people = peopleService.sortBy(PersonCompareType.ByGenderThenLastAsc);
+        return people;
     }
 
-    @PostMapping( value = "records")
+    @GetMapping( value = "birthdate")
+    public List<Person> getRecordsByBirthdateAsc() {
+        final List<Person> people = peopleService.sortBy(PersonCompareType.ByBirthdateAsc);
+        return people;
+    }
+
+    @GetMapping( value = "name")
+    public List<Person> getRecordsByLastNameDesc() {
+        final List<Person> people = peopleService.sortBy(PersonCompareType.ByLastNameDesc);
+        return people;
+    }
+
+
+    @PostMapping( )
     public Person createRecord(@RequestBody final String recordStr)
     {
         log.info(String.format("createRecord(): recordStr = %s", recordStr));
-        return Person.of("Smith", "Joe", "Male", "05/29/1995", "Maize");
+        final Person person = peopleService.addPerson(recordStr);
+        return person;
     }
 }

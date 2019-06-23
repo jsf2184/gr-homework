@@ -17,7 +17,7 @@ public class GenderTest {
         validate("ma", Gender.Male);
         validate("falfeasance", Gender.Female);
         validate("f", Gender.Female);
-        validate("F", Gender.Female);
+        validate("Fixture", Gender.Female);
         validate("Fa", Gender.Female);
         validate("fa", Gender.Female);
     }

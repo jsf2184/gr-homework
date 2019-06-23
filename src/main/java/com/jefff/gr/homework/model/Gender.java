@@ -3,8 +3,8 @@ package com.jefff.gr.homework.model;
 import static com.jefff.gr.homework.utility.StringUtility.isEmpty;
 
 public enum Gender {
-    Male,
-    Female;
+    Female,
+    Male;
 
     public static Gender toEnum(String str) {
         if (isEmpty(str)) {

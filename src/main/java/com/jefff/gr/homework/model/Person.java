@@ -7,6 +7,7 @@ import com.jefff.gr.homework.utility.DateUtility;
 import com.jefff.gr.homework.utility.StringUtility;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Person {
     private String lastName;
@@ -66,5 +67,22 @@ public class Person {
         return person;
     }
 
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return lastName.equals(person.lastName) &&
+                firstName.equals(person.firstName) &&
+                gender == person.gender &&
+                favoriteColor.equals(person.favoriteColor) &&
+                birthDate.equals(person.birthDate);
+    }
 
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(lastName, firstName, gender, favoriteColor, birthDate);
+    }
 }
