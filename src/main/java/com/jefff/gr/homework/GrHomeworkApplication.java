@@ -13,7 +13,7 @@ public class GrHomeworkApplication {
 		Properties properties = System.getProperties();
 		String mode = properties.getProperty("mode");
 		if (mode != null && mode.equals("console")) {
-			ConsoleApplication consoleApplication = ConsoleApplication.create("Report");
+			ConsoleApplication consoleApplication = ConsoleApplication.create();
 			consoleApplication.run(args);
 		} else {
 			SpringApplication.run(GrHomeworkApplication.class, args);
