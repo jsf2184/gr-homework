@@ -11,14 +11,12 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class PersonMapper {
 
     private static final Logger log = Logger.getLogger(PersonMapper.class);
-    private Gson gson = new GsonBuilder().create();
-    private Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+    private Gson gson;
 
     private final Splitter _splitter;
 
@@ -61,17 +59,5 @@ public class PersonMapper {
         return result;
     }
 
-    public List<String> toListOfJsonStrings(List<Person> people)
-    {
-        List<String> list = people.stream().map(this::toJsonString).collect(Collectors.toList());
-        return list;
-    }
-
-    public String toJsonString(List<Person> people)
-    {
-        List<String> strings = toListOfJsonStrings(people);
-        String result = prettyGson.toJson(strings);
-        return result;
-    }
 
 }

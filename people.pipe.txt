@@ -1,3 +1,2 @@
 Jones, George, male, maize, 5/1/1991
 Smith, Jon, Male, orange, 7/1/1993
-Missing, fields, f, red

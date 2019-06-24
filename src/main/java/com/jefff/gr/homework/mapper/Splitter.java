@@ -1,6 +1,5 @@
 package com.jefff.gr.homework.mapper;
 
-import com.jefff.gr.homework.controller.Controller;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -14,11 +13,6 @@ import java.util.stream.Collectors;
 public class Splitter {
 
     private static final Logger log = Logger.getLogger(Splitter.class);
-
-    public Splitter()
-    {
-        log.info("Splitter constructor");
-    }
 
     public List<String> split(final String src) {
         if (src == null)

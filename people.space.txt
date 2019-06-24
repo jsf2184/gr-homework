@@ -1,3 +1,2 @@
 Jones, Ellie, Female, red, 7/1/1993
-bad, gender, x, violet 2/1/1989
 Smith, Jane, female, black, 8/1/1994

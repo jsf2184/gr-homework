@@ -4,7 +4,6 @@ import com.jefff.gr.homework.mapper.PersonMapper;
 import com.jefff.gr.homework.model.Person;
 import com.jefff.gr.homework.persistence.PersistenceService;
 import com.jefff.gr.homework.persistence.PersonEntity;
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,14 +12,11 @@ import java.util.stream.Collectors;
 @Service
 public class PeopleService {
 
-    private static final Logger log = Logger.getLogger(PeopleService.class);
-
     private PersistenceService persistenceService;
     private PersonMapper personMapper;
 
     public PeopleService(PersistenceService persistenceService, PersonMapper personMapper)
     {
-        log.info("PeopleService constructor");
         this.persistenceService = persistenceService;
         this.personMapper = personMapper;
     }
