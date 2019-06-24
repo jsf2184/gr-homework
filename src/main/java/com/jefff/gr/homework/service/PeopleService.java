@@ -1,6 +1,5 @@
 package com.jefff.gr.homework.service;
 
-import com.jefff.gr.homework.controller.Controller;
 import com.jefff.gr.homework.mapper.PersonMapper;
 import com.jefff.gr.homework.model.Person;
 import com.jefff.gr.homework.persistence.PersistenceService;
@@ -30,12 +29,15 @@ public class PeopleService {
     {
         Person person = personMapper.toPerson(personStr);
         PersonEntity personEntity = personMapper.toPersonEntity(person);
-        addPerson(personEntity);
+        personEntity = addPerson(personEntity);
+        person = personMapper.toPerson(personEntity);
         return person;
     }
 
-    public void addPerson(PersonEntity personEntity) {
-        persistenceService.addPerson(personEntity);
+    public PersonEntity addPerson(PersonEntity personEntity)
+    {
+        personEntity = persistenceService.addPerson(personEntity);
+        return personEntity;
     }
 
     public List<Person> sortBy(PersonCompareType compareType)

@@ -1,0 +1,4 @@
+errorLine
+Smith, Bob, M, pink, 9/1/1992
+Smith, Sue, F, blue, 6/1/1995
+Birthday, Bad, F, blue, 6/1

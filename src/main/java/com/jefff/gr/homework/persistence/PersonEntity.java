@@ -1,15 +1,13 @@
 package com.jefff.gr.homework.persistence;
 
 
-import com.jefff.gr.homework.exceptions.UsageError;
-import com.jefff.gr.homework.exceptions.UsageException;
 import com.jefff.gr.homework.model.Gender;
-import com.jefff.gr.homework.utility.DateUtility;
-import com.jefff.gr.homework.utility.StringUtility;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class PersonEntity {
+    private UUID id;
     private String lastName;
     private String firstName;
     private Gender gender;
@@ -48,6 +46,13 @@ public class PersonEntity {
         return favoriteColor;
     }
 
+    public UUID getId()
+    {
+        return id;
+    }
 
-
+    public void setId(UUID id)
+    {
+        this.id = id;
+    }
 }

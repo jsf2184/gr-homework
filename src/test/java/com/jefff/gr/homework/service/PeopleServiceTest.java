@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.jefff.gr.homework.persistence.TestFixture.*;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class PeopleServiceTest
@@ -31,7 +30,8 @@ public class PeopleServiceTest
         when(personMapper.toPerson(personStr)).thenReturn(person);
         PersonEntity personEntity = mock(PersonEntity.class);
         when(personMapper.toPersonEntity(person)).thenReturn(personEntity);
-
+        when(personMapper.toPerson(personEntity)).thenReturn(person);
+        when(persistenceService.addPerson(personEntity)).thenReturn(personEntity);
         final Person result = peopleService.addPerson(personStr);
         Assert.assertSame(person, result);
         verify(persistenceService, times(1)).addPerson(personEntity);

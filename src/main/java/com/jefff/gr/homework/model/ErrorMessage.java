@@ -4,11 +4,9 @@ import java.util.Date;
 
 public class ErrorMessage
 {
-    private Date timestamp;
-    private String message;
+    final private Date timestamp;
+    final private String message;
 
-    public ErrorMessage() {
-    }
 
     public ErrorMessage(Date timestamp, String message) {
         this.timestamp = timestamp;
@@ -19,15 +17,9 @@ public class ErrorMessage
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
