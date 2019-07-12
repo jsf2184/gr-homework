@@ -48,7 +48,7 @@ public class ConsoleApplication
         reportGenerator.writeReport(PersonCompareType.ByLastNameDesc);
     }
 
-    public static ConsoleApplication create(String filePrefix)
+    public static ConsoleApplication create()
     {
         PersistenceService persistenceService = new PersistenceService();
         PersonMapper personMapper = new PersonMapper(new Splitter());
@@ -56,7 +56,7 @@ public class ConsoleApplication
         PrintWriterFactory printWriterFactory = new PrintWriterFactory();
         ReportGenerator reportGenerator = new ReportGenerator(peopleService,
                                                               personMapper,
-                                                              filePrefix,
+                                                              "Report",
                                                               printWriterFactory);
         ConsoleApplication consoleApplication = new ConsoleApplication(peopleService,
                                                                        reportGenerator);
