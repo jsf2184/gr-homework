@@ -13,15 +13,15 @@ import static org.mockito.Mockito.*;
 
 public class ControllerTest
 {
-    List<Person> personList;
-    PeopleService peopleService;
+    private List<Person> personList;
+    private PeopleService peopleService;
 
     @Test
     public void getRecordsByGenderThenLastAsc()
     {
         Controller controller = create();
         when(peopleService.sortBy(PersonCompareType.ByGenderThenLastAsc)).thenReturn(personList);
-        List<Person> result = controller.getRecordsByGenderThenLastAsc();
+        List<Person> result = controller.getAll(PersonCompareType.ByGenderThenLastAsc.name());
         Assert.assertSame(personList, result);
         verify(peopleService, times(1)).sortBy(PersonCompareType.ByGenderThenLastAsc);
 
@@ -32,7 +32,7 @@ public class ControllerTest
     {
         Controller controller = create();
         when(peopleService.sortBy(PersonCompareType.ByBirthdateAsc)).thenReturn(personList);
-        List<Person> result = controller.getRecordsByBirthdateAsc();
+        List<Person> result = controller.getAll(PersonCompareType.ByBirthdateAsc.name());
         Assert.assertSame(personList, result);
         verify(peopleService, times(1)).sortBy(PersonCompareType.ByBirthdateAsc);
 
@@ -43,7 +43,7 @@ public class ControllerTest
     {
         Controller controller = create();
         when(peopleService.sortBy(PersonCompareType.ByLastNameDesc)).thenReturn(personList);
-        List<Person> result = controller.getRecordsByLastNameDesc();
+        List<Person> result = controller.getAll(PersonCompareType.ByLastNameDesc.name());
         Assert.assertSame(personList, result);
         verify(peopleService, times(1)).sortBy(PersonCompareType.ByLastNameDesc);
 
@@ -61,7 +61,7 @@ public class ControllerTest
         verify(peopleService, times(1)).addPerson(message);
     }
 
-    Controller create()
+    private Controller create()
     {
         peopleService = mock(PeopleService.class);
         personList = new ArrayList<>();
