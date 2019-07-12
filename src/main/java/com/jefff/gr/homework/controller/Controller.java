@@ -1,14 +1,15 @@
 package com.jefff.gr.homework.controller;
 
+import com.jefff.gr.homework.exceptions.UsageError;
+import com.jefff.gr.homework.exceptions.UsageException;
 import com.jefff.gr.homework.model.Person;
 import com.jefff.gr.homework.service.PeopleService;
 import com.jefff.gr.homework.service.PersonCompareType;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -17,7 +18,7 @@ public class Controller {
 
     private static final Logger log = Logger.getLogger(Controller.class);
 
-    PeopleService peopleService;
+    private PeopleService peopleService;
 
     public Controller(PeopleService peopleService)
     {
@@ -25,24 +26,23 @@ public class Controller {
         this.peopleService = peopleService;
     }
 
-    @GetMapping( value = "gender")
-    public List<Person> getRecordsByGenderThenLastAsc() {
-        final List<Person> people = peopleService.sortBy(PersonCompareType.ByGenderThenLastAsc);
+    @GetMapping(value = "")
+    public List<Person> getAll(@RequestParam String compareType) {
+
+        PersonCompareType personCompareType = PersonCompareType.toEnum(compareType);
+        if (personCompareType == null) {
+            throw new UsageException(UsageError.BadCompareType);
+        }
+        log.info(String.format("getAll, comapareType = %s", personCompareType));
+        final List<Person> people = peopleService.sortBy(personCompareType);
         return people;
     }
 
-    @GetMapping( value = "birthdate")
-    public List<Person> getRecordsByBirthdateAsc() {
-        final List<Person> people = peopleService.sortBy(PersonCompareType.ByBirthdateAsc);
-        return people;
+    @GetMapping(value = "{id}")
+    public Person getPerson(@PathVariable UUID id) {
+        Person person = peopleService.get(id);
+        return person;
     }
-
-    @GetMapping( value = "name")
-    public List<Person> getRecordsByLastNameDesc() {
-        final List<Person> people = peopleService.sortBy(PersonCompareType.ByLastNameDesc);
-        return people;
-    }
-
 
     @PostMapping( )
     public Person createRecord(@RequestBody final String recordStr)

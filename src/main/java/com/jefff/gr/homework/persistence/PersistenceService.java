@@ -13,7 +13,7 @@ public class PersistenceService {
     // Need a ConcurrentHashMap or something similar since users of our system could PUT or
     // GET simultaneously.
     //
-    ConcurrentHashMap<UUID, PersonEntity> people;
+    private ConcurrentHashMap<UUID, PersonEntity> people;
 
     public PersistenceService() {
         people = new ConcurrentHashMap<>();
@@ -28,6 +28,11 @@ public class PersistenceService {
         UUID id = UUID.randomUUID();
         personEntity.setId(id);
         people.put(id, personEntity);
+        return personEntity;
+    }
+
+    public PersonEntity findPerson(UUID id) {
+        PersonEntity personEntity = people.get(id);
         return personEntity;
     }
 }

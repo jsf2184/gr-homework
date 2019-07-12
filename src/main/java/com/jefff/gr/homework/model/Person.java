@@ -8,8 +8,10 @@ import com.jefff.gr.homework.utility.StringUtility;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Person {
+    private UUID id;
     private String lastName;
     private String firstName;
     private Gender gender;
@@ -42,6 +44,14 @@ public class Person {
 
     public String getFavoriteColor() {
         return favoriteColor;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public static Person of(String lastName,

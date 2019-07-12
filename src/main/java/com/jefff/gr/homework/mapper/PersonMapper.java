@@ -38,11 +38,13 @@ public class PersonMapper {
     }
 
     public Person toPerson(PersonEntity personEntity) {
-        return Person.of(personEntity.getLastName(),
-                         personEntity.getFirstName(),
-                         personEntity.getGender().toString(),
-                         personEntity.getFavoriteColor(),
-                         DateUtility.toString(personEntity.getBirthDate()));
+        Person result = Person.of(personEntity.getLastName(),
+                                  personEntity.getFirstName(),
+                                  personEntity.getGender().toString(),
+                                  personEntity.getFavoriteColor(),
+                                  DateUtility.toString(personEntity.getBirthDate()));
+        result.setId(personEntity.getId());
+        return result;
     }
 
     public PersonEntity toPersonEntity(Person person) {
