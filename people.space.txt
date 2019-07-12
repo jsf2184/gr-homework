@@ -1,2 +1,2 @@
-Jones, Ellie, Female, red, 7/1/1993
-Smith, Jane, female, black, 8/1/1994
+Jones Ellie Female red 7/1/1993
+Smith Jane female black 8/1/1994
