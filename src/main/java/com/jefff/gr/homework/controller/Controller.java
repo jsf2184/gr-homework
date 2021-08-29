@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping(value = "records")
 public class Controller {
 
-    #Logger
     private static final Logger log = Logger.getLogger(Controller.class);
 
     PeopleService peopleService;
