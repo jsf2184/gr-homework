@@ -6,21 +6,19 @@ import com.jefff.gr.homework.service.PersonCompareType;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Serializable;
-import java.util.Arrays;
 import java.util.List;
 
 
 @RestController
-@RequestMapping( value = "records")
+@RequestMapping(value = "records")
 public class Controller {
 
+    #Logger
     private static final Logger log = Logger.getLogger(Controller.class);
 
     PeopleService peopleService;
 
-    public Controller(PeopleService peopleService)
-    {
+    public Controller(PeopleService peopleService) {
         log.info("Controller constructor");
         this.peopleService = peopleService;
     }
