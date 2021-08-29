@@ -5,10 +5,13 @@ import com.jefff.gr.homework.model.Person;
 import com.jefff.gr.homework.service.PeopleService;
 import com.jefff.gr.homework.service.PersonCompareType;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 
+@Service
 public class ReportGenerator
 {
     private static final Logger log = Logger.getLogger(ReportGenerator.class);
@@ -17,6 +20,14 @@ public class ReportGenerator
     PersonMapper personMapper;
     String filePrefix;
     private PrintWriterFactory printWriterFactory;
+
+    @Autowired
+    public ReportGenerator(PeopleService peopleService,
+                           PersonMapper personMapper,
+                           PrintWriterFactory printWriterFactory)
+    {
+        this(peopleService, personMapper, "REPORT", printWriterFactory);
+    }
 
     public ReportGenerator(PeopleService peopleService,
                            PersonMapper personMapper,
