@@ -39,5 +39,4 @@ public class DateUtilityTest {
         String actual = DateUtility.toString(null);
         Assert.assertNull(actual);
     }
-
 }
