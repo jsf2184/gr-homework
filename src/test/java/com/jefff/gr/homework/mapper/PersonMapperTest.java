@@ -26,7 +26,6 @@ public class PersonMapperTest {
         Assert.assertEquals(Gender.Male, person.getGender());
         Assert.assertEquals("Blue", person.getFavoriteColor());
         Assert.assertEquals("10/6/1930", person.getBirthDate());
-
     }
 
     public static void validateError(String input, UsageError expectedError) {
