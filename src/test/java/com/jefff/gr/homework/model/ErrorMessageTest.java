@@ -16,5 +16,4 @@ public class ErrorMessageTest
         Assert.assertEquals(now, errorMessage.getTimestamp());
         Assert.assertEquals(message, errorMessage.getMessage());
     }
-
 }
