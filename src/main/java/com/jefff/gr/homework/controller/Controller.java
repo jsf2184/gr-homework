@@ -13,15 +13,14 @@ import java.util.UUID;
 
 
 @RestController
-@RequestMapping( value = "records")
+@RequestMapping(value = "records")
 public class Controller {
 
     private static final Logger log = Logger.getLogger(Controller.class);
 
     private PeopleService peopleService;
 
-    public Controller(PeopleService peopleService)
-    {
+    public Controller(PeopleService peopleService) {
         log.info("Controller constructor");
         this.peopleService = peopleService;
     }
