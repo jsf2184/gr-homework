@@ -24,7 +24,6 @@ public class ControllerTest
         List<Person> result = controller.getAll(PersonCompareType.ByGenderThenLastAsc.name());
         Assert.assertSame(personList, result);
         verify(peopleService, times(1)).sortBy(PersonCompareType.ByGenderThenLastAsc);
-
     }
 
     @Test
