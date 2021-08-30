@@ -25,4 +25,5 @@ public class GenderTest {
     public static void validate(String input, Gender expected) {
         Assert.assertEquals(expected, Gender.toEnum(input));
     }
+
 }
