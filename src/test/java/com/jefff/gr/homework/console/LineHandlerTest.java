@@ -10,7 +10,6 @@ import static org.mockito.Mockito.*;
 
 public class LineHandlerTest
 {
-
     PeopleService peopleService;
     List<String> strings;
 
