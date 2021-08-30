@@ -19,7 +19,6 @@ import static org.mockito.Mockito.when;
 
 public class ReportGeneratorTest
 {
-
     PeopleService peopleService;
     PersonMapper personMapper;
     PrintWriterFactory printWriterFactory;
