@@ -27,5 +27,4 @@ public class GrHomeworkApplication {
 			log.info("back from SpringApplication.run()");
 		}
 	}
-
 }
