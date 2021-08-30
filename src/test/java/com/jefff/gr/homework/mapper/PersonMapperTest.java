@@ -38,5 +38,4 @@ public class PersonMapperTest {
         }
         Assert.fail();
     }
-
 }
