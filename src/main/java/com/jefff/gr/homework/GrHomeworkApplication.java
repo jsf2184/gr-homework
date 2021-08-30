@@ -25,8 +25,6 @@ public class GrHomeworkApplication {
 		} else {
 			ConfigurableApplicationContext context = SpringApplication.run(GrHomeworkApplication.class, args);
 			log.info("back from SpringApplication.run()");
-
-
 		}
 	}
 
